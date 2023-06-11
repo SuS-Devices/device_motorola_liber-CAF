@@ -144,7 +144,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Chipset
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.soc.manufacturer=QTI \
     ro.soc.model=SM7150
 
 # CNE
@@ -291,6 +290,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.sar_sensor=1 \
     persist.vendor.radio.fi_supported=0 \
     persist.vendor.radio.rat_on=other \
+    persist.radio.multisim.config=dsds \
+    persist.vendor.rcs.singlereg.feature=1 \
     persist.vendor.radio.hidl_dev_service=1 \
     persist.vendor.lte.pco_supported=true \
     persist.vendor.radio.enableadvancedscan=true \

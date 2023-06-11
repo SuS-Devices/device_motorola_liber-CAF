@@ -350,7 +350,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_ODM_PROPERTIES += \
     ro.vendor.qti.va_odm.support=1
 
+# Data Services
+$(call inherit-product, vendor/qcom/opensource/dataservices/dataservices_vendor_product.mk)
+
 # RIL
+ENABLE_VENDOR_RIL_SERVICE := true
+
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.2 \
     android.hardware.radio.config@1.0 \
@@ -361,8 +366,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor \
+    android.hardware.radio@1.6.vendor \
     android.hardware.radio@1.5.vendor \
     android.hardware.radio@1.4.vendor \
+    android.hardware.radio.config@1.3.vendor \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio.deprecated@1.0.vendor \
     android.hardware.secure_element@1.2.vendor \
@@ -385,7 +392,10 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    device/qcom/common/vendor/telephony
+
+PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/data-ipa-cfg-mgr-legacy
+$(call inherit-product, vendor/qcom/opensource/data-ipa-cfg-mgr-legacy/ipacm_vendor_product.mk)
 
 # Thermal
 PRODUCT_PACKAGES += \
